@@ -1,3 +1,5 @@
+package Ejercicio4;
+
 public class NodoArbol {
 
     int dato;

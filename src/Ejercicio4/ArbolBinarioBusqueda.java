@@ -1,3 +1,5 @@
+package Ejercicio4;
+
 public class ArbolBinarioBusqueda {
 
     private NodoArbol raiz;
@@ -48,19 +50,28 @@ public class ArbolBinarioBusqueda {
     public boolean buscar(int dato) {
 
         NodoArbol actual = raiz;
-        
 
+        while (actual != null) {
+            if (actual.dato == dato) {
+                return true;
+            } else if (dato < actual.dato) {
+                actual = actual.izquierdo;
+            } else {
+                actual = actual.derecho;
+            }
+        }
 
+        return false;
     }
 
-    // Método público que utilizaremos desde main
+//    Método público que utilizaremos desde main
     public void mostrar() {
 
         inOrden(raiz);
     }
 
 
-    // Método recursivo
+    //Método recursivo
     public void inOrden(NodoArbol nodo) {
 
         if (nodo == null) {
@@ -75,7 +86,7 @@ public class ArbolBinarioBusqueda {
     }
 
 
-    public void preOrden(NodoArbol nodo) {
+    public void preOrden (NodoArbol nodo) {
         if (nodo == null) {
             return;
         }
@@ -86,8 +97,13 @@ public class ArbolBinarioBusqueda {
 
         preOrden(nodo.derecho);
     }
-    
-    public void postOrden(NodoArbol nodo) {
+    public void preOrden() {
+
+        preOrden(raiz);
+
+    }
+
+    public void postOrden (NodoArbol nodo) {
         if (nodo == null) {
             return;
         }
@@ -97,6 +113,9 @@ public class ArbolBinarioBusqueda {
         postOrden(nodo.derecho);
 
         System.out.println(nodo.dato);
+    }
+    public void postOrden() {
+        postOrden(raiz);
     }
 
 }
